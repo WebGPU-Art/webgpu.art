@@ -44,7 +44,7 @@ jobs:
         options: ''
         ssh_options: ''
         src: 'dist/*'
-        dest: 'rsync-user@tiye.me:/web-assets/repo/${{ github.repository }}'
+        dest: 'rsync-user@tiye.me:/web-assets/repo/Triadica/'
 
     - name: Display status from deploy
       run: echo "${{ steps.deploy.outputs.status }}"
