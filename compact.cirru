@@ -16,29 +16,35 @@
                   {} $ :content "\""
               div
                 {} $ :style (merge ui/global ui/row)
-                textarea $ {}
-                  :value $ :content state
-                  :placeholder "\"Content"
-                  :style $ merge ui/expand ui/textarea
-                    {} $ :height 320
-                  :on-input $ fn (e d!)
-                    d! cursor $ assoc state :content (:value e)
-                =< 8 nil
+                create-element :iframe $ {} (:src "\"https://webgpu.art/protea/") (:class-name css-iframe)
                 div
-                  {} $ :style ui/expand
-                  comp-md "|This is some content with `code`"
-                  =< |8px nil
-                  button $ {} (:style ui/button) (:inner-text "\"Run")
-                    :on-click $ fn (e d!)
-                      println $ :content state
+                  {} $ :style
+                    {} (:margin "\"40px") (:padding "\"12px") (:width 400) (:height 400) (:background-color :white) (:opacity 0.8)
+                  <> "\"WebGPU arts"
+                  list-> ({})
+                    -> demos $ map
+                      fn (info)
+                        [] (:name info)
+                          div ({})
+                            a $ {}
+                              :inner-text $ :name info
+                              :href $ :url info
                 when dev? $ comp-reel (>> states :reel) reel ({})
+        |css-iframe $ quote
+          defstyle css-iframe $ {}
+            "\"&" $ {} (:border :none) (:width "\"100vw") (:height "\"100vh") (:position :absolute) (:z-index -1)
+        |demos $ quote
+          def demos $ []
+            {} (:name "\"Protea") (:url "\"https://webgpu.art/protea/")
+            {} (:name "\"Lutra Crafts") (:url "\"https://webgpu.art/lutra-crafts/")
       :ns $ quote
         ns app.comp.container $ :require (respo-ui.core :as ui)
-          respo.core :refer $ defcomp defeffect <> >> div button textarea span input
+          respo.core :refer $ defcomp defeffect <> >> div button textarea span input create-element list-> a
           respo.comp.space :refer $ =<
           reel.comp.reel :refer $ comp-reel
           respo-md.comp.md :refer $ comp-md
           app.config :refer $ dev?
+          respo.css :refer $ defstyle
     |app.config $ {}
       :defs $ {}
         |dev? $ quote
