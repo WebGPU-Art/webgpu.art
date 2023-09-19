@@ -16,19 +16,21 @@
                   state $ or (:data states)
                     {} $ :content "\""
                 div
-                  {} $ :style (merge ui/global ui/row)
+                  {} $ :class-name (str-spaced css/global css/row)
                   create-element :iframe $ {} (:src "\"https://webgpu.art/protea/") (:class-name css-iframe)
                   div
-                    {} $ :style
-                      {} (:margin "\"40px") (:padding "\"12px") (:width 400) (:height 400) (:background-color :white) (:opacity 0.8)
-                    <> "\"WebGPU arts"
-                    list-> ({})
+                    {} $ :class-name style-content
+                    <> "\"WebGPU Arts" style-title
+                    list->
+                      {} $ :style
+                        {} $ :padding "\"0 20px"
                       -> demos $ map
                         fn (info)
                           [] (:name info)
                             div ({})
                               a $ {}
                                 :inner-text $ :name info
+                                :class-name style-link
                                 :href $ :url info
                   when dev? $ comp-reel (>> states :reel) reel ({})
         |css-iframe $ %{} :CodeEntry (:doc |)
@@ -38,17 +40,40 @@
         |demos $ %{} :CodeEntry (:doc |)
           :code $ quote
             def demos $ []
-              {} (:name "\"Protea") (:url "\"https://webgpu.art/protea/")
+              {} (:name "\"Triadica Space") (:url "\"https://webgpu.art/triadica-space/")
+              {} (:name "\"Triadica Crafts") (:url "\"https://webgpu.art/crafts/")
+              {} (:name "\"Lagopus") (:url "\"https://webgpu.art/lagopus/")
               {} (:name "\"Lutra Crafts") (:url "\"https://webgpu.art/lutra-crafts/")
+              {} (:name "\"Protea Attractor") (:url "\"https://webgpu.art/protea-attractor/")
+              {} (:name "\"Protea Fireworks") (:url "\"https://webgpu.art/protea-fireworks/")
+              {} (:name "\"WGSL Shadertoy") (:url "\"https://webgpu.art/wgsl-shadertoy/")
+              {} (:name "\"Sapium") (:url "\"https://webgpu.art/sapium/")
+              {} (:name "\"Soluble") (:url "\"https://webgpu.art/soluble/")
+        |style-content $ %{} :CodeEntry (:doc |)
+          :code $ quote
+            defstyle style-content $ {}
+              "\"&" $ {} (:margin "\"40px 120px") (:padding "\"12px") (:border-radius "\"6px")
+        |style-link $ %{} :CodeEntry (:doc |)
+          :code $ quote
+            defstyle style-link $ {}
+              "\"&" $ {}
+                :color $ hsl 240 50 60
+              "\"&:hover" $ {}
+                :color $ hsl 240 80 80
+        |style-title $ %{} :CodeEntry (:doc |)
+          :code $ quote
+            defstyle style-title $ {}
+              "\"&" $ {} (:margin "\"12px 0") (:display :block) (:font-family ui/font-fancy) (:color :white) (:font-size 24) (:font-weight 100)
       :ns $ %{} :CodeEntry (:doc |)
         :code $ quote
-          ns app.comp.container $ :require (respo-ui.core :as ui)
+          ns app.comp.container $ :require (respo-ui.core :as ui) (respo-ui.css :as css)
             respo.core :refer $ defcomp defeffect <> >> div button textarea span input create-element list-> a
             respo.comp.space :refer $ =<
             reel.comp.reel :refer $ comp-reel
             respo-md.comp.md :refer $ comp-md
             app.config :refer $ dev?
             respo.css :refer $ defstyle
+            respo.util.format :refer $ hsl
     |app.config $ %{} :FileEntry
       :defs $ {}
         |dev? $ %{} :CodeEntry (:doc |)
