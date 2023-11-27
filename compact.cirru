@@ -17,7 +17,7 @@
                     {} $ :content "\""
                 div
                   {} $ :class-name (str-spaced css/global css/row)
-                  create-element :iframe $ {} (:src "\"https://webgpu.art/protea/") (:class-name css-iframe)
+                  create-element :iframe $ {} (:src "\"https://webgpu.art/protea/?hide-tabs=true&tab=bounce") (:class-name css-iframe)
                   div
                     {} $ :class-name style-content
                     <> "\"WebGPU Arts" style-title
@@ -40,15 +40,15 @@
         |demos $ %{} :CodeEntry (:doc |)
           :code $ quote
             def demos $ []
-              {} (:name "\"Triadica Space") (:url "\"https://webgpu.art/triadica-space/")
-              {} (:name "\"Triadica Crafts") (:url "\"https://webgpu.art/crafts/")
+              {} (:name "\"@GitHub") (:url "\"https://github.com/Triadica")
+              {} (:name "\"WGSL Shadertoy") (:url "\"https://webgpu.art/wgsl-shadertoy/")
+              {} (:name "\"Protea") (:url "\"https://webgpu.art/protea/")
+              {} (:name "\"Soluble") (:url "\"https://webgpu.art/soluble/")
               {} (:name "\"Lagopus") (:url "\"https://webgpu.art/lagopus/")
               {} (:name "\"Lutra Crafts") (:url "\"https://webgpu.art/lutra-crafts/")
-              {} (:name "\"Protea Attractor") (:url "\"https://webgpu.art/protea-attractor/")
-              {} (:name "\"Protea Fireworks") (:url "\"https://webgpu.art/protea-fireworks/")
-              {} (:name "\"WGSL Shadertoy") (:url "\"https://webgpu.art/wgsl-shadertoy/")
+              {} (:name "\"Triadica Space") (:url "\"https://webgpu.art/triadica-space/")
+              {} (:name "\"Triadica Crafts") (:url "\"https://webgpu.art/crafts/")
               {} (:name "\"Sapium") (:url "\"https://webgpu.art/sapium/")
-              {} (:name "\"Soluble") (:url "\"https://webgpu.art/soluble/")
         |style-content $ %{} :CodeEntry (:doc |)
           :code $ quote
             defstyle style-content $ {}
