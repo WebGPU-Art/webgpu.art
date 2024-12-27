@@ -40,7 +40,7 @@
         |demos $ %{} :CodeEntry (:doc |)
           :code $ quote
             def demos $ []
-              {} (:name "\"@GitHub") (:url "\"https://github.com/Triadica")
+              {} (:name "\"@GitHub") (:url "\"https://github.com/webGPU-Art/")
               {} (:name "\"WGSL Shadertoy") (:url "\"https://webgpu.art/wgsl-shadertoy/")
               {} (:name "\"Protea") (:url "\"https://webgpu.art/protea/")
               {} (:name "\"Soluble") (:url "\"https://webgpu.art/soluble/")
@@ -49,6 +49,8 @@
               {} (:name "\"Triadica Space") (:url "\"https://webgpu.art/triadica-space/")
               {} (:name "\"Triadica Crafts") (:url "\"https://webgpu.art/crafts/")
               {} (:name "\"Sapium") (:url "\"https://webgpu.art/sapium/")
+              {} (:name "\"Caterfoil") (:url "\"https://webgpu.art/caterfoil.ts/")
+              {} (:name "\"Fungi Collection") (:url "\"https://webgpu.art/fungi-collection/")
         |style-content $ %{} :CodeEntry (:doc |)
           :code $ quote
             defstyle style-content $ {}

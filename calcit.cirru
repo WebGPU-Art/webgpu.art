@@ -241,7 +241,7 @@
                       |h $ %{} :Expr (:at 1700071660462) (:by |rJG4IHzWf)
                         :data $ {}
                           |T $ %{} :Leaf (:at 1700071662162) (:by |rJG4IHzWf) (:text |:url)
-                          |b $ %{} :Leaf (:at 1700071662887) (:by |rJG4IHzWf) (:text "|\"https://github.com/Triadica")
+                          |b $ %{} :Leaf (:at 1735319583595) (:by |rJG4IHzWf) (:text "|\"https://github.com/webGPU-Art/")
                   |b $ %{} :Expr (:at 1700071526945) (:by |rJG4IHzWf)
                     :data $ {}
                       |T $ %{} :Leaf (:at 1700071526945) (:by |rJG4IHzWf) (:text |{})
@@ -330,6 +330,28 @@
                         :data $ {}
                           |T $ %{} :Leaf (:at 1700071512600) (:by |rJG4IHzWf) (:text |:url)
                           |b $ %{} :Leaf (:at 1700071512600) (:by |rJG4IHzWf) (:text "|\"https://webgpu.art/sapium/")
+                  |y $ %{} :Expr (:at 1700071512600) (:by |rJG4IHzWf)
+                    :data $ {}
+                      |T $ %{} :Leaf (:at 1700071512600) (:by |rJG4IHzWf) (:text |{})
+                      |b $ %{} :Expr (:at 1700071512600) (:by |rJG4IHzWf)
+                        :data $ {}
+                          |T $ %{} :Leaf (:at 1700071512600) (:by |rJG4IHzWf) (:text |:name)
+                          |b $ %{} :Leaf (:at 1735319625515) (:by |rJG4IHzWf) (:text "|\"Caterfoil")
+                      |h $ %{} :Expr (:at 1700071512600) (:by |rJG4IHzWf)
+                        :data $ {}
+                          |T $ %{} :Leaf (:at 1700071512600) (:by |rJG4IHzWf) (:text |:url)
+                          |b $ %{} :Leaf (:at 1735319627373) (:by |rJG4IHzWf) (:text "|\"https://webgpu.art/caterfoil.ts/")
+                  |z $ %{} :Expr (:at 1700071512600) (:by |rJG4IHzWf)
+                    :data $ {}
+                      |T $ %{} :Leaf (:at 1700071512600) (:by |rJG4IHzWf) (:text |{})
+                      |b $ %{} :Expr (:at 1700071512600) (:by |rJG4IHzWf)
+                        :data $ {}
+                          |T $ %{} :Leaf (:at 1700071512600) (:by |rJG4IHzWf) (:text |:name)
+                          |b $ %{} :Leaf (:at 1735319652943) (:by |rJG4IHzWf) (:text "|\"Fungi Collection")
+                      |h $ %{} :Expr (:at 1700071512600) (:by |rJG4IHzWf)
+                        :data $ {}
+                          |T $ %{} :Leaf (:at 1700071512600) (:by |rJG4IHzWf) (:text |:url)
+                          |b $ %{} :Leaf (:at 1735319647718) (:by |rJG4IHzWf) (:text "|\"https://webgpu.art/fungi-collection/")
         |style-content $ %{} :CodeEntry (:doc |)
           :code $ %{} :Expr (:at 1694876509939) (:by |rJG4IHzWf)
             :data $ {}
