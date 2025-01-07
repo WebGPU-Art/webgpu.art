@@ -122,7 +122,7 @@
                                           |b $ %{} :Expr (:at 1694876638656) (:by |rJG4IHzWf)
                                             :data $ {}
                                               |T $ %{} :Leaf (:at 1694876639494) (:by |rJG4IHzWf) (:text |:padding)
-                                              |b $ %{} :Leaf (:at 1694876941860) (:by |rJG4IHzWf) (:text "|\"0 20px")
+                                              |b $ %{} :Leaf (:at 1736272554337) (:by |rJG4IHzWf) (:text "|\"0px 20px")
                               |T $ %{} :Expr (:at 1690337185475) (:by |rJG4IHzWf)
                                 :data $ {}
                                   |D $ %{} :Leaf (:at 1690337192097) (:by |rJG4IHzWf) (:text |->)
@@ -297,39 +297,17 @@
                         :data $ {}
                           |T $ %{} :Leaf (:at 1700071532525) (:by |rJG4IHzWf) (:text |:url)
                           |b $ %{} :Leaf (:at 1700071532525) (:by |rJG4IHzWf) (:text "|\"https://webgpu.art/lutra-crafts/")
-                  |v $ %{} :Expr (:at 1700071505392) (:by |rJG4IHzWf)
+                  |w $ %{} :Expr (:at 1700071532525) (:by |rJG4IHzWf)
                     :data $ {}
-                      |T $ %{} :Leaf (:at 1700071505392) (:by |rJG4IHzWf) (:text |{})
-                      |b $ %{} :Expr (:at 1700071505392) (:by |rJG4IHzWf)
+                      |T $ %{} :Leaf (:at 1700071532525) (:by |rJG4IHzWf) (:text |{})
+                      |b $ %{} :Expr (:at 1700071532525) (:by |rJG4IHzWf)
                         :data $ {}
-                          |T $ %{} :Leaf (:at 1700071505392) (:by |rJG4IHzWf) (:text |:name)
-                          |b $ %{} :Leaf (:at 1700071505392) (:by |rJG4IHzWf) (:text "|\"Triadica Space")
-                      |h $ %{} :Expr (:at 1700071505392) (:by |rJG4IHzWf)
+                          |T $ %{} :Leaf (:at 1700071532525) (:by |rJG4IHzWf) (:text |:name)
+                          |b $ %{} :Leaf (:at 1736272665870) (:by |rJG4IHzWf) (:text "|\"Wallpapers")
+                      |h $ %{} :Expr (:at 1700071532525) (:by |rJG4IHzWf)
                         :data $ {}
-                          |T $ %{} :Leaf (:at 1700071505392) (:by |rJG4IHzWf) (:text |:url)
-                          |b $ %{} :Leaf (:at 1700071505392) (:by |rJG4IHzWf) (:text "|\"https://webgpu.art/triadica-space/")
-                  |w $ %{} :Expr (:at 1700071509485) (:by |rJG4IHzWf)
-                    :data $ {}
-                      |T $ %{} :Leaf (:at 1700071509485) (:by |rJG4IHzWf) (:text |{})
-                      |b $ %{} :Expr (:at 1700071509485) (:by |rJG4IHzWf)
-                        :data $ {}
-                          |T $ %{} :Leaf (:at 1700071509485) (:by |rJG4IHzWf) (:text |:name)
-                          |b $ %{} :Leaf (:at 1700071509485) (:by |rJG4IHzWf) (:text "|\"Triadica Crafts")
-                      |h $ %{} :Expr (:at 1700071509485) (:by |rJG4IHzWf)
-                        :data $ {}
-                          |T $ %{} :Leaf (:at 1700071509485) (:by |rJG4IHzWf) (:text |:url)
-                          |b $ %{} :Leaf (:at 1700071509485) (:by |rJG4IHzWf) (:text "|\"https://webgpu.art/crafts/")
-                  |x $ %{} :Expr (:at 1700071512600) (:by |rJG4IHzWf)
-                    :data $ {}
-                      |T $ %{} :Leaf (:at 1700071512600) (:by |rJG4IHzWf) (:text |{})
-                      |b $ %{} :Expr (:at 1700071512600) (:by |rJG4IHzWf)
-                        :data $ {}
-                          |T $ %{} :Leaf (:at 1700071512600) (:by |rJG4IHzWf) (:text |:name)
-                          |b $ %{} :Leaf (:at 1700071512600) (:by |rJG4IHzWf) (:text "|\"Sapium")
-                      |h $ %{} :Expr (:at 1700071512600) (:by |rJG4IHzWf)
-                        :data $ {}
-                          |T $ %{} :Leaf (:at 1700071512600) (:by |rJG4IHzWf) (:text |:url)
-                          |b $ %{} :Leaf (:at 1700071512600) (:by |rJG4IHzWf) (:text "|\"https://webgpu.art/sapium/")
+                          |T $ %{} :Leaf (:at 1700071532525) (:by |rJG4IHzWf) (:text |:url)
+                          |b $ %{} :Leaf (:at 1736272674616) (:by |rJG4IHzWf) (:text "|\"https://webgpu.art/wallpapers/")
                   |y $ %{} :Expr (:at 1700071512600) (:by |rJG4IHzWf)
                     :data $ {}
                       |T $ %{} :Leaf (:at 1700071512600) (:by |rJG4IHzWf) (:text |{})
@@ -399,8 +377,30 @@
                                 :data $ {}
                                   |T $ %{} :Leaf (:at 1694876836116) (:by |rJG4IHzWf) (:text |hsl)
                                   |b $ %{} :Leaf (:at 1694876838576) (:by |rJG4IHzWf) (:text |240)
-                                  |h $ %{} :Leaf (:at 1694876989723) (:by |rJG4IHzWf) (:text |50)
-                                  |l $ %{} :Leaf (:at 1694876982566) (:by |rJG4IHzWf) (:text |60)
+                                  |h $ %{} :Leaf (:at 1736272757267) (:by |rJG4IHzWf) (:text |50)
+                                  |l $ %{} :Leaf (:at 1736272757781) (:by |rJG4IHzWf) (:text |66)
+                          |b $ %{} :Expr (:at 1736272504069) (:by |rJG4IHzWf)
+                            :data $ {}
+                              |T $ %{} :Leaf (:at 1736272507573) (:by |rJG4IHzWf) (:text |:background-color)
+                              |b $ %{} :Expr (:at 1736272507809) (:by |rJG4IHzWf)
+                                :data $ {}
+                                  |T $ %{} :Leaf (:at 1736272508091) (:by |rJG4IHzWf) (:text |hsl)
+                                  |b $ %{} :Leaf (:at 1736272508340) (:by |rJG4IHzWf) (:text |0)
+                                  |h $ %{} :Leaf (:at 1736272508543) (:by |rJG4IHzWf) (:text |0)
+                                  |l $ %{} :Leaf (:at 1736272718681) (:by |rJG4IHzWf) (:text |50)
+                                  |o $ %{} :Leaf (:at 1736272702132) (:by |rJG4IHzWf) (:text |0.4)
+                          |h $ %{} :Expr (:at 1736272519316) (:by |rJG4IHzWf)
+                            :data $ {}
+                              |T $ %{} :Leaf (:at 1736272521797) (:by |rJG4IHzWf) (:text |:padding)
+                              |b $ %{} :Leaf (:at 1736272613962) (:by |rJG4IHzWf) (:text "|\"4px 12px")
+                          |j $ %{} :Expr (:at 1736272594936) (:by |rJG4IHzWf)
+                            :data $ {}
+                              |T $ %{} :Leaf (:at 1736272598682) (:by |rJG4IHzWf) (:text |:line-height)
+                              |b $ %{} :Leaf (:at 1736272604603) (:by |rJG4IHzWf) (:text "|\"36px")
+                          |l $ %{} :Expr (:at 1736272568208) (:by |rJG4IHzWf)
+                            :data $ {}
+                              |T $ %{} :Leaf (:at 1736272572933) (:by |rJG4IHzWf) (:text |:border-radius)
+                              |b $ %{} :Leaf (:at 1736272580008) (:by |rJG4IHzWf) (:text "|\"4px")
                   |h $ %{} :Expr (:at 1694876829534) (:by |rJG4IHzWf)
                     :data $ {}
                       |D $ %{} :Leaf (:at 1694876858543) (:by |rJG4IHzWf) (:text "|\"&:hover")
@@ -414,8 +414,8 @@
                                 :data $ {}
                                   |T $ %{} :Leaf (:at 1694876836116) (:by |rJG4IHzWf) (:text |hsl)
                                   |b $ %{} :Leaf (:at 1694876838576) (:by |rJG4IHzWf) (:text |240)
-                                  |h $ %{} :Leaf (:at 1694876839659) (:by |rJG4IHzWf) (:text |80)
-                                  |l $ %{} :Leaf (:at 1694876840519) (:by |rJG4IHzWf) (:text |80)
+                                  |h $ %{} :Leaf (:at 1736272771506) (:by |rJG4IHzWf) (:text |100)
+                                  |l $ %{} :Leaf (:at 1736272764717) (:by |rJG4IHzWf) (:text |80)
         |style-title $ %{} :CodeEntry (:doc |)
           :code $ %{} :Expr (:at 1694876593264) (:by |rJG4IHzWf)
             :data $ {}

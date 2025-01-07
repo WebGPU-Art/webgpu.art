@@ -23,7 +23,7 @@
                     <> "\"WebGPU Arts" style-title
                     list->
                       {} $ :style
-                        {} $ :padding "\"0 20px"
+                        {} $ :padding "\"0px 20px"
                       -> demos $ map
                         fn (info)
                           [] (:name info)
@@ -46,9 +46,7 @@
               {} (:name "\"Soluble") (:url "\"https://webgpu.art/soluble/")
               {} (:name "\"Lagopus") (:url "\"https://webgpu.art/lagopus/")
               {} (:name "\"Lutra Crafts") (:url "\"https://webgpu.art/lutra-crafts/")
-              {} (:name "\"Triadica Space") (:url "\"https://webgpu.art/triadica-space/")
-              {} (:name "\"Triadica Crafts") (:url "\"https://webgpu.art/crafts/")
-              {} (:name "\"Sapium") (:url "\"https://webgpu.art/sapium/")
+              {} (:name "\"Wallpapers") (:url "\"https://webgpu.art/wallpapers/")
               {} (:name "\"Caterfoil") (:url "\"https://webgpu.art/caterfoil.ts/")
               {} (:name "\"Fungi Collection") (:url "\"https://webgpu.art/fungi-collection/")
         |style-content $ %{} :CodeEntry (:doc |)
@@ -59,9 +57,13 @@
           :code $ quote
             defstyle style-link $ {}
               "\"&" $ {}
-                :color $ hsl 240 50 60
+                :color $ hsl 240 50 66
+                :background-color $ hsl 0 0 50 0.4
+                :padding "\"4px 12px"
+                :line-height "\"36px"
+                :border-radius "\"4px"
               "\"&:hover" $ {}
-                :color $ hsl 240 80 80
+                :color $ hsl 240 100 80
         |style-title $ %{} :CodeEntry (:doc |)
           :code $ quote
             defstyle style-title $ {}
