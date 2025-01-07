@@ -47,7 +47,7 @@
               {} (:name "\"Lagopus") (:url "\"https://webgpu.art/lagopus/")
               {} (:name "\"Lutra Crafts") (:url "\"https://webgpu.art/lutra-crafts/")
               {} (:name "\"Wallpapers") (:url "\"https://webgpu.art/wallpapers/")
-              {} (:name "\"Caterfoil") (:url "\"https://webgpu.art/caterfoil.ts/")
+              {} (:name "\"Caterfoil") (:url "\"https://webgpu.art/caterfoil.mbt/")
               {} (:name "\"Fungi Collection") (:url "\"https://webgpu.art/fungi-collection/")
         |style-content $ %{} :CodeEntry (:doc |)
           :code $ quote
