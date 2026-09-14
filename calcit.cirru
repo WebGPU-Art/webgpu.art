@@ -3,8 +3,7 @@
   :about "|Machine-generated snapshot. Do not edit directly — changes will be overwritten. Use `calcit query` to inspect and `calcit edit`/`calcit tree` to modify. Run `calcit docs agents --contract` before mutations; use `--full` for first orientation or changed contract digest. Manual edits must follow format and schema conventions, then run `calcit edit format`."
   :package |app
   :entries $ {} $ :default
-    {} (:description |) (:init-fn 'app.main/main!) (:mode :native)
-      :reload-fn 'app.main/reload!
+    {} (:description |) (:init-fn 'app.main/main!) (:mode :native) (:reload-fn 'app.main/reload!)
       :feature-policy $ {}
       :modules $ [] |respo.calcit/ |lilac/ |memof/ |respo-ui.calcit/ |respo-markdown.calcit/ |reel.calcit/
       :type-slots $ {}
@@ -14,10 +13,10 @@
         'comp-container $ %{} 'CodeEntry (:doc |)
           :code $ quote $ defcomp comp-container (reel)
             let
-                store $ :store reel
-                states $ :states store
-                cursor $ or (:cursor states) ([])
-                state $ or (:data states)
+                store $ option:unwrap-or (get reel :store) ({})
+                states $ option:unwrap-or (get store :states) ({})
+                cursor $ option:unwrap-or (get states :cursor) ([])
+                state $ option:unwrap-or (get states :data)
                   {} $ :content |
               div
                 {} $ :class-name $ str-spaced css/global css/row
@@ -30,12 +29,13 @@
                   list->
                     {} $ :style $ {} (:padding "|0px 20px")
                     -> demos $ map $ fn (info)
-                      [] (:name info)
+                      []
+                        option:unwrap-or (get info :name) |
                         div ({})
                           a $ {}
-                            :inner-text $ :name info
+                            :inner-text $ option:unwrap-or (get info :name) |
                             :class-name style-link
-                            :href $ :url info
+                            :href $ option:unwrap-or (get info :url) |
                 when dev? $ comp-reel (>> states :reel) reel $ {}
           :examples $ []
           :schema $ :: 'Dynamic
@@ -47,25 +47,15 @@
         'demos $ %{} 'CodeEntry (:doc |)
           :code $ quote $ def demos
             []
-              {} (:name |@GitHub)
-                :url |https://github.com/webGPU-Art/
-              {} (:name "|WGSL Shadertoy")
-                :url |https://webgpu.art/wgsl-shadertoy/
-              {} (:name |Protea)
-                :url |https://webgpu.art/protea/
-              {} (:name |Soluble)
-                :url |https://webgpu.art/soluble/
-              {} (:name |Lagopus)
-                :url |https://webgpu.art/lagopus/
-              {} (:name "|Lutra Crafts")
-                :url |https://webgpu.art/lutra-crafts/
-              {} (:name |Wallpapers)
-                :url |https://webgpu.art/wallpapers/
-              {} (:name |Caterfoil)
-                :url |https://webgpu.art/caterfoil.mbt/
-              {}
-                :name "|Fungi Collection"
-                :url |https://webgpu.art/fungi-collection/
+              {} (:name |@GitHub) (:url |https://github.com/webGPU-Art/)
+              {} (:name "|WGSL Shadertoy") (:url |https://webgpu.art/wgsl-shadertoy/)
+              {} (:name |Protea) (:url |https://webgpu.art/protea/)
+              {} (:name |Soluble) (:url |https://webgpu.art/soluble/)
+              {} (:name |Lagopus) (:url |https://webgpu.art/lagopus/)
+              {} (:name "|Lutra Crafts") (:url |https://webgpu.art/lutra-crafts/)
+              {} (:name |Wallpapers) (:url |https://webgpu.art/wallpapers/)
+              {} (:name |Caterfoil) (:url |https://webgpu.art/caterfoil.mbt/)
+              {} (:name "|Fungi Collection") (:url |https://webgpu.art/fungi-collection/)
           :examples $ []
           :schema $ :: 'Dynamic
         'style-content $ %{} 'CodeEntry (:doc |)
@@ -104,7 +94,7 @@
       :defs $ {}
         'dev? $ %{} 'CodeEntry (:doc |)
           :code $ quote $ def dev?
-            = |dev $ get-env |mode |release
+            = |dev $ option:unwrap-or (get-env |mode) |release
           :examples $ []
           :schema $ :: 'Dynamic
         'site $ %{} 'CodeEntry (:doc |)
@@ -120,7 +110,7 @@
           :code $ quote $ defatom *reel
             -> reel-schema/reel (assoc :base schema/store) (assoc :store schema/store)
           :examples $ []
-          :schema $ :: 'Dynamic
+          :schema $ :: 'Ref 'Dynamic
         'dispatch! $ %{} 'CodeEntry (:doc |)
           :code $ quote $ defn dispatch! (op)
             when
@@ -128,7 +118,8 @@
               println |Dispatch: op
             reset! *reel $ reel-updater updater @*reel op
           :examples $ []
-          :schema $ :: 'Dynamic
+          :schema $ :: 'Fn $ {} (:return 'Unit)
+            :args $ [] 'Dynamic
         'main! $ %{} 'CodeEntry (:doc |)
           :code $ quote $ defn main! ()
             println "|Running mode:" $ if config/dev? |dev |release
@@ -140,8 +131,8 @@
             flipped js/setInterval 60000 persist-storage!
             let
                 raw $ js/localStorage.getItem $ :storage-key config/site
-              when (some? raw)
-                dispatch! $ :: :hydrate-storage $ parse-cirru-edn raw
+              when (js-present? raw)
+                dispatch! $ :: :hydrate-storage $ parse-cirru-edn (unsafe-coerce raw String)
             println "|App started."
           :examples $ []
           :schema $ :: 'Fn $ {} (:return 'Dynamic)
@@ -153,10 +144,14 @@
           :schema $ :: 'Dynamic
         'persist-storage! $ %{} 'CodeEntry (:doc |)
           :code $ quote $ defn persist-storage! () (js/console.log |persist)
-            js/localStorage.setItem (:storage-key config/site)
-              format-cirru-edn $ :store @*reel
+            do
+              js/localStorage.setItem (:storage-key config/site)
+                format-cirru-edn $ :store @*reel
+              , &unit
           :examples $ []
-          :schema $ :: 'Dynamic
+          :schema $ :: 'Fn $ {} (:return 'Unit)
+            :args $ []
+            :features $ #{} :js-ffi
         'reload! $ %{} 'CodeEntry (:doc |)
           :code $ quote $ defn reload! ()
             if (nil? build-errors)
@@ -166,12 +161,15 @@
                 hud! |ok~ |Ok
               hud! |error build-errors
           :examples $ []
-          :schema $ :: 'Dynamic
+          :schema $ :: 'Fn $ {} (:return 'Unit)
+            :args $ []
         'render-app! $ %{} 'CodeEntry (:doc |)
           :code $ quote $ defn render-app! ()
-            render! mount-target (comp-container @*reel) dispatch!
+            render! (js/document.querySelector |.app) (comp-container @*reel) dispatch!
           :examples $ []
-          :schema $ :: 'Dynamic
+          :schema $ :: 'Fn $ {} (:return 'Unit)
+            :args $ []
+            :features $ #{} :js-ffi
       :ns $ %{} 'NsEntry (:doc |)
         :code $ quote $ ns app.main
           :require
@@ -199,12 +197,13 @@
       :defs $ {} $ 'updater
         %{} 'CodeEntry (:doc |)
           :code $ quote $ defn updater (store op op-id op-time)
-            tag-match op
+            match op
               (:states cursor s) (update-states store cursor s)
               (:hydrate-storage data) data
               _ $ do (println "|unknown op:" op) store
           :examples $ []
-          :schema $ :: 'Dynamic
+          :schema $ :: 'Fn $ {} (:return 'Dynamic)
+            :args $ [] 'Dynamic 'Dynamic 'String 'Number
       :ns $ %{} 'NsEntry (:doc |)
         :code $ quote $ ns app.updater
           :require $ respo.cursor :refer $ update-states
