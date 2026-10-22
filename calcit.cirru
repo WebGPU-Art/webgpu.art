@@ -126,13 +126,13 @@
             render-app!
             add-watch! *reel :changes $ fn (reel prev) (render-app!)
             listen-devtools! |k dispatch!
-            browser/add-event-listener! |beforeunload $ fn (event) (persist-storage!)
-            browser/set-interval! persist-storage! 60000
             match
               browser/storage-get $ option:unwrap $ get config/site :storage-key
               (:some raw)
                 dispatch! $ :: :hydrate-storage $ parse-cirru-edn raw
               (:none) (println "|No stored state")
+            browser/add-event-listener! |beforeunload $ fn (event) (persist-storage!)
+            browser/set-interval! persist-storage! 60000
             println "|App started."
           :examples $ []
           :schema $ :: 'Fn $ {} (:return 'Unit)
