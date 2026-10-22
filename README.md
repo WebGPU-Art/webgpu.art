@@ -37,6 +37,8 @@ https://github.com/calcit-lang/respo-calcit-workflow
 
 CI 保留 canonical 格式和真实构建、冷启动命名空间检查、完整 strict 的结构化 passed/空 diagnostics 判定，以及一个定义附带的旧存档 round-trip 回归，不增加验证脚本或基线。Main 仍使用 COS action v1.2.0 内置公开校验上传 dist；PR 仅检查/构建并保留前端 artifact 供验收，不接收部署凭据。Vite/COS 继续共用 WebGPU-Art/webgpu.art/ 生产前缀，本地默认相对路径，不新增独立 CDN checker。
 
+PR artifact 使用相对资源路径，下载后可直接从本地 HTTP 服务验收，不需要改写 HTML 或先发布生产资产。
+
 上传排队、不取消；生产发布前检查当前 main，过期构建同时跳过 COS 和服务器同步。构建只编译一次，依赖安装与编译命令分开。
 
 The original server destination remains rsync-user@tiye.me:/web-assets/repo/WebGPU-Art/, synchronizing dist/* after successful main upload. Fonts, iframe, site metadata, directory links and storage key remain unchanged. Production requires COS_BUCKET, COS_SECRET_ID, COS_SECRET_KEY and the original rsync_private_key secrets.
