@@ -18,6 +18,8 @@ yarn dev
 
 使用配对正式 Calcit/procs **0.30.1**、Node.js 24 和 Yarn 4.18.0。Respo 0.16.124、Reel 0.6.41、UI 0.8.0 和 js-ffi 0.2.5 采用精确正式模块 tag。
 
+剩余三处 Option 旧函数调用已统一为 `.unwrap` / `.unwrap-or` 首选方法；参数、默认值、缺值失败行为、存储 key 和先恢复后注册保存的顺序不变。此轮不改变依赖、原存档回归或发布配置，不引入额外迁移/校验脚本。
+
 只有 calcit.cirru/deps.cirru 是 canonical；通过 Calcit 官方 query/tree/edit/config 修改 Snapshot，不恢复 compact/package。`yarn dev` 先编译再启动 Vite；修改 Calcit 时，在另一终端运行 `yarn watch`，无需 concurrently。本轮不执行本地 Caps，独立 CI 验证严格依赖安装和工具链；上方依赖命令供正常环境准备使用，不是本轮已执行的声明。
 
 应用内部改用真实 Store/Op/Reel 类型，读取旧 Map 存档时检查并转换，持久化仍写原 Map 格式且沿用原 `workflow` key。目录的 9 个作品 URL、Protea iframe 查询参数和原发布路径不改；不把外部 iframe 的 GPU/网络可用性当作本站迁移已验证的能力。
