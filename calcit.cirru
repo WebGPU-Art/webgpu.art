@@ -206,8 +206,7 @@
           :examples $ []
           :schema $ quote UnionDef
         'Store $ %{} 'CodeEntry (:doc |)
-          :code $ quote $ defstruct Store
-            :states $ Map Dynamic Dynamic
+          :code $ quote $ defstruct Store (:states respo.schema/States)
           :examples $ []
           :schema $ quote StructDef
         'empty-records $ %{} 'CodeEntry (:doc |)
@@ -226,7 +225,7 @@
               if (struct? raw) (&struct:to-map raw) raw
               , 'Store
           :examples $ []
-          :schema $ quote $ Fn Dynamic (-> app.schema/Store)
+          :schema $ quote $ Fn Input (-> app.schema/Store) (:generics Input)
           :tests $ [] $ %{} 'TestEntry (:name |legacy-state-tree-roundtrip)
             :code $ quote $ let
                 raw $ {} $ :states
