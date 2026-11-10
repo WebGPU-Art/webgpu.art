@@ -16,7 +16,7 @@ yarn install --immutable
 yarn dev
 ```
 
-使用配对正式 Calcit/procs **0.37.0**、Node.js 24 和 Yarn 4.18.0。Respo 0.19.5、Reel 0.10.0、UI 0.15.2 和 js-ffi 0.2.13 采用精确正式模块 tag。
+使用配对正式 Calcit/procs **0.40.0**、Node.js 24 和 Yarn 4.18.0。Respo 0.19.5、Reel 0.11.0、UI 0.15.2 和 js-ffi 0.2.13 采用精确正式模块 tag。
 
 应用内部使用 `Op | Reel.Control` 区分更新和历史控制，并继续识别旧调试操作。作品列表使用 Respo 的键值列表，状态路径使用 `CoordKey`。
 
