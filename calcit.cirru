@@ -34,7 +34,7 @@
                   list->
                     {} $ :style $ {} (:padding "|0px 20px")
                     -> demos $ map $ fn (info)
-                      hint-fn $ Fn app.comp.container/Demo $ -> (List app.comp.container/DemoChild)
+                      hint-fn $ Fn Demo $ -> (List DemoChild)
                       [] (:name info)
                         div ({})
                           a $ {}
