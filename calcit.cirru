@@ -42,8 +42,8 @@
                             :class-name style-link
                             :href $ :url info
                 if dev?
-                  Option :some $ comp-typed-reel (>> states :reel) reel ({}) on-control!
-                  Option :none
+                  Some $ comp-typed-reel (>> states :reel) reel ({}) on-control!
+                  , None
           :examples $ []
           :schema $ quote $ Fn (reel.typed/State app.schema/Op app.schema/Store)
             Fn reel.typed/Control $ -> Unit
@@ -57,7 +57,7 @@
           :code $ quote $ def demos
             [] (Demo :name |@GitHub :url |https://github.com/webGPU-Art/) (Demo :name "|WGSL Shadertoy" :url |https://webgpu.art/wgsl-shadertoy/) (Demo :name |Protea :url |https://webgpu.art/protea/) (Demo :name |Soluble :url |https://webgpu.art/soluble/) (Demo :name |Lagopus :url |https://webgpu.art/lagopus/) (Demo :name "|Lutra Crafts" :url |https://webgpu.art/lutra-crafts/) (Demo :name |Wallpapers :url |https://webgpu.art/wallpapers/) (Demo :name |Caterfoil :url |https://webgpu.art/caterfoil.mbt/) (Demo :name "|Fungi Collection" :url |https://webgpu.art/fungi-collection/)
           :examples $ []
-          :schema $ quote $ List app.comp.container/Demo
+          :schema $ quote $ List Demo
         'style-content $ %{} 'CodeEntry (:doc |)
           :code $ quote $ defstyle style-content
             {} $ |& $ {} (:margin "|40px 120px") (:padding |12px) (:border-radius |6px)
@@ -108,13 +108,13 @@
         '*reel $ %{} 'CodeEntry (:doc |)
           :code $ quote $ defref *reel (schema/new-reel)
           :examples $ []
-          :schema $ quote $ Ref (reel.typed/State app.schema/Op app.schema/Store)
+          :schema $ quote $ Ref (typed/State schema/Op schema/Store)
         'dispatch! $ %{} 'CodeEntry (:doc |)
           :code $ quote $ defn dispatch! (op)
             when config/dev? $ println |Dispatch: op
             dispatch-resolved! op
           :examples $ []
-          :schema $ quote $ Fn app.schema/Op (-> Unit)
+          :schema $ quote $ Fn schema/Op (-> Unit)
         'dispatch-resolved! $ %{} 'CodeEntry (:doc |)
           :code $ quote $ defn dispatch-resolved! (op)
             reset! *reel $ match op
@@ -123,7 +123,7 @@
                 typed/record-op updater @*reel action (generate-id!) (unix-time-ms)
             , &unit
           :examples $ []
-          :schema $ quote $ Fn app.schema/ResolvedOp (-> Unit) (:features :js-ffi)
+          :schema $ quote $ Fn schema/ResolvedOp (-> Unit) (:features :js-ffi)
         'main! $ %{} 'CodeEntry (:doc |)
           :code $ quote $ defn main! ()
             println "|Running mode:" $ if config/dev? |dev |release
@@ -153,7 +153,7 @@
             when config/dev? $ println |Dispatch: control
             dispatch-resolved! control
           :examples $ []
-          :schema $ quote $ Fn reel.typed/Control (-> Unit)
+          :schema $ quote $ Fn typed/Control (-> Unit)
         'persist-storage! $ %{} 'CodeEntry (:doc |)
           :code $ quote $ defn persist-storage! () (println |persist)
             browser/storage-set!
@@ -212,20 +212,20 @@
         'empty-records $ %{} 'CodeEntry (:doc |)
           :code $ quote $ def empty-records ([])
           :examples $ []
-          :schema $ quote $ List (reel.typed/Record app.schema/Op)
+          :schema $ quote $ List (typed/Record Op)
         'new-reel $ %{} 'CodeEntry (:doc |)
           :code $ quote $ defn new-reel ()
-            typed/State :base store :store store :records empty-records :pointer (Option :none) :stopped? false :display? false :merged? false
+            typed/State :base store :store store :records empty-records :pointer None :stopped? false :display? false :merged? false
           :examples $ []
           :schema $ quote $ Fn
-            -> $ reel.typed/State app.schema/Op app.schema/Store
+            -> $ typed/State Op Store
         'normalize-store $ %{} 'CodeEntry (:doc |)
           :code $ quote $ defn normalize-store (raw)
             decode-map-as
               if (struct? raw) (&struct:to-map raw) raw
               , 'Store
           :examples $ []
-          :schema $ quote $ Fn Input (-> app.schema/Store) (:generics Input)
+          :schema $ quote $ Fn Input (-> Store) (:generics Input)
           :tests $ [] $ %{} 'TestEntry (:name |legacy-state-tree-roundtrip)
             :code $ quote $ let
                 raw $ {} $ :states
@@ -241,7 +241,7 @@
           :code $ quote $ def store
             Store :states $ {} $ :cursor ([])
           :examples $ []
-          :schema $ quote app.schema/Store
+          :schema $ quote Store
       :ns $ %{} 'NsEntry (:doc |)
         :code $ quote $ ns app.schema
           :require $ reel.typed :as typed
