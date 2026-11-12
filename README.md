@@ -16,9 +16,9 @@ yarn install --immutable
 yarn dev
 ```
 
-使用配对正式 Calcit/procs **0.41.1**、Node.js 24 和 Yarn 4.18.0。Respo 0.19.5、Reel 0.11.0、UI 0.15.2 和 js-ffi 0.2.13 采用精确正式模块 tag。
+使用配对正式 Calcit/procs **0.42.0**、Node.js 24 和 Yarn 4.18.0。Respo 0.19.5、Reel 0.11.0、UI 0.15.2 和 js-ffi 0.2.13 采用精确正式模块 tag。
 
-应用内部使用 `Op | Reel.Control` 区分更新和历史控制，并继续识别旧调试操作。作品列表使用 Respo 的键值列表，状态路径使用 `CoordKey`。
+应用内部使用 `Op | Reel.Control` 区分更新和历史控制，并继续识别旧调试操作。作品列表使用 Respo 的键值列表，状态路径使用 `CoordKey`。 应用状态树使用递归 `StateValue` 联合类型，旧存档中的字符串、数字和标签键继续可读。
 
 只有 calcit.cirru/deps.cirru 是 canonical；通过 Calcit 官方 query/tree/edit/config 修改 Snapshot，不恢复 compact/package。`yarn dev` 先编译再启动 Vite；修改 Calcit 时，在另一终端运行 `yarn watch`，无需 concurrently。CI 验证严格依赖安装和工具链。
 
