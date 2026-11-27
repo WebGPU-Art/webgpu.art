@@ -16,7 +16,7 @@ yarn install --immutable
 yarn dev
 ```
 
-使用配对正式 Calcit/procs **0.45.1**、Node.js 24 和 Yarn 4.18.0。Respo 0.19.18、Reel 0.11.9、UI 0.16.5 和 js-ffi 0.2.24 采用精确正式模块 tag。
+使用配对正式 Calcit/procs **0.46.0**、Node.js 24 和 Yarn 4.18.0。Respo 0.20.0、Reel 0.11.10、UI 0.16.6 和 js-ffi 0.2.26 采用精确正式模块 tag。
 
 应用内部使用 `Op | Reel.Control` 区分更新和历史控制，并继续识别旧调试操作。作品列表使用 Respo 的键值列表，状态路径使用 `CoordKey`。 应用状态树使用递归 `StateValue` 联合类型，旧存档中的字符串、数字和标签键继续可读。
 
@@ -37,7 +37,7 @@ http-server dist/
 
 https://github.com/calcit-lang/respo-calcit-workflow
 
-CI 保留 canonical 格式和真实构建、冷启动命名空间检查、完整 strict 的结构化 passed/空 diagnostics 判定，以及一个定义附带的旧存档 round-trip 回归，不增加验证脚本或基线。Main 仍使用 COS action v1.2.0 内置公开校验上传 dist；PR 仅检查/构建并保留前端 artifact 供验收，不接收部署凭据。Vite/COS 继续共用 WebGPU-Art/webgpu.art/ 生产前缀，本地默认相对路径，不新增独立 CDN checker。
+CI 保留 canonical 格式和真实构建、冷启动命名空间检查、完整 strict 的结构化 passed/空 diagnostics 判定，以及一个定义附带的旧存档 round-trip 回归，不增加验证脚本或基线。Main 仍使用 COS action v1.3.0 内置公开校验上传 dist；PR 仅检查/构建并保留前端 artifact 供验收，不接收部署凭据。Vite/COS 继续共用 WebGPU-Art/webgpu.art/ 生产前缀，本地默认相对路径，不新增独立 CDN checker。
 
 PR artifact 使用相对资源路径，下载后可直接从本地 HTTP 服务验收，不需要改写 HTML 或先发布生产资产。
 
